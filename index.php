@@ -20,7 +20,7 @@ Mau custom web ucapan online? Order Aja di Deka Tutorial !! (DM untuk order)
 
 konten = [
   {
-    gambar: "NamaFileGambar",
+    gambar: "stik1.gif",
     ucapan: "UcapanKalian",
   },
 ];
