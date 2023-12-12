@@ -1,86 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css">
+<?php date_default_timezone_set('Asia/Jakarta'); if(isset($_POST['pesan'])){ $fp = fopen('p.txt', 'a'); fwrite($fp, '
+<div class="cp"><p><span>Pesan :</span><br />'.$_POST['pesan'].'</p><h6>'.date("d-M-Y (H:i)").'</h6></div>'); echo json_encode(array("s"=>200)); fclose($fp); die; } if(isset($_POST['d'])){ $fa = fopen('p.txt', 'a'); fwrite($fa,$_POST['d']); echo json_encode(array("s"=>200)); fclose($fa); die; } if(isset($_GET['d'])){ $fa = fopen('p.txt', 'a'); fclose($fa); $fr = fopen('p.txt', 'r'); echo json_encode(array("d"=>fgets($fr))); fclose($fr); die; } ?> <!DOCTYPE html> <html lang="en"> <head> <meta charset="UTF-8" /> <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <title>UcapanKu</title> <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.4/dist/sweetalert2.all.min.js"></script> <script src="https://dekatutorial.github.io/crd/s.js"></script> <link rel="stylesheet" type="text/css" href="https://dekatutorial.github.io/crd/s.css" /> </head> <body> <?php if(isset($_GET['pesan'])){ echo "<div id='ccp'>"; $fp = fopen('p.txt', 'r'); fgets($fp); while(!feof($fp)){ echo "".fgets($fp); } fclose($fp); echo "</div></body></html>"; die; } ?> <script>dt()</script>
+    <div class="ctnr">
+      <div class="lv">
+        <img src="https://dekatutorial.github.io/crd/lv.svg" />
+        <p>Klik Love-nya</p>
+      </div>
+      <div class="ctn">
+        <button class="btn next">[ Lanjut ]</button>
+        <button class="btn send">[ Kirim Pesan ]</button>
+      </div>
+    </div>
+<script>
+/*=========================
+Mau custom web ucapan online? Order Aja di Deka Tutorial !! (DM untuk order)
++ Youtube: Deka Tutorial
++ Tiktok: @deka_tutorial
++ Instagram: deka_tutorial
+=========================*/
 
-</head>
-<body>
-    <div class="container-fluid">
-        <div class="col-md-6 offset-md-3 pt-4">
-          <h2 class="card-title text-center">Kasir Pembayaran</h2>
-          <h5 class="text-center">SIJAFOOD</h5>
-          <p class="text-center">Mau Makan Apa Aja Ada!!!</p>
-          <div class="card mt-4" style="background-color: #6dd47e;">
-            <div class="card-body">
-              <div class="row">
-                <div class="col-md-3"><img src="https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/6531502b-42dc-4d4c-b05a-f6b0b816e759_Go-Biz_20200831_233826.jpeg" style="width: 80%;" class="img-fluid mx-auto d-block" alt=""></div>
-                <div class="col-md-7 pt-3"><p>Paket Ayam Geprek</p><p>Catatan: Sambal dipisah</p><p class="harga">Rp16.000</p></div>
-                <div class="col-md-2 pt-3 text-center"><input type="number" min="3" max="" value="3" id="item1" style="width: 35px;"></div>
-              </div>
-              </div>
+konten = [
+  {
+    gambar: "stik1.gif",
+    ucapan: "UcapanKalian",
+  },
+];
 
-                    <div class="card-body">
-                      <div class="row">
-                        <div class="col-md-3"><img src="https://nilaigizi.com/assets/images/produk/produk_1578041377.jpg" style="width: 80%;" class="img-fluid mx-auto d-block" alt=""></div>
-                        <div class="col-md-7 pt-3"><p>Es Teh</p><p>Catatan: 2 Es sedikit</p><p class="harga">Rp4.000</p></div>
-                        <div class="col-md-2 pt-3 text-center"><input type="number" min="2" max="2" value="2" id="item2" style="width: 35px;"></div>
-                      </div>
-                      </div>
+musik = "musik.mp3";
+nomorWhatsapp = "6281xxx";
 
-                      <div class="card-body">
-                        <div class="row">
-                          <div class="col-md-3"><img src="https://i.ytimg.com/vi/hevXi1zbKgI/maxresdefault.jpg" style="width: 80%;" class="img-fluid mx-auto d-block" alt=""></div>
-                          <div class="col-md-7 pt-3"><p>Tumis Kangkung</p><p class="harga">Rp6.000</p></div>
-                          <div class="col-md-2 pt-3 text-center"><input type="number" min="1" max="1" value="1" id="item3"style="width: 35px;"></div>
-                        </div>
-                        </div>
-
-                        <div class="card-body">
-                            <div class="row">
-                              <div class="col-md-3"><img src="https://asset.kompas.com/crops/1q6VFyePEWS4MPP4U7TlEHDfvzM=/32x3:1000x649/750x500/data/photo/2023/03/01/63fede97899d6.jpg" style="width: 80%;" class="img-fluid mx-auto d-block" alt=""></div>
-                              <div class="col-md-7 pt-3"><p>Tempe Goreng</p><p class="harga">Rp1.000</p></div>
-                              <div class="col-md-2 pt-3 text-center"><input type="number" min="2" max="2" value="2" id="item4" style="width: 35px;"></div>
-                            </div>
-                            </div>
-
-                            <div class="card-body">
-                                <div class="row">
-                                  <div class="col-md-3"><img src="https://cdn2.tstatic.net/tribunnewswiki/foto/bank/images/Jus-Jambu-1.jpg" style="width: 80%;" class="img-fluid mx-auto d-block" alt=""></div>
-                                  <div class="col-md-7 pt-3"><p>Jus Jambu</p><p>Catatan: Tanpa Es</p><p class="harga">Rp3.000</p></div>
-                                  <div class="col-md-2 pt-3 text-center"><input type="number" min="1" max="1" value="1" id="item5" style="width: 35px;"></div>
-                                </div>
-                                </div>
-
-                      <div class="card-body">
-                        <div class="d-grip gap-2 col-md-10 mx-auto text-center">
-                          <button class="btn btn-lg  col-md-12" id="checkout-btn" style="background-color: #000080; color : rgb(34, 255, 218);" type="button">Check Out</button>
-                        </div>
-                        </div>
-
-                        <div class="card mt-3 mb-2" style="background-color: aqua;">
-                            <div class="card-body">
-                              <div class="row">
-                                <div class="col-md-4 text-center">
-                                  <h3>Harga Total</h3>
-                                  <strong id="total-price">RP. 0</strong>
-                                </div>
-                                <div class="col-md-4 text-center">
-                                  <h3>Diskon</h3>
-                                  <strong id="diskon">0%</strong>
-                                  <p><input type="text" id="promot" placeholder="Masukan Kode Promo"></p>
-                                </div>
-                                <div class="col-md-4 text-center">
-                                  <h3>Bayar</h3>
-                                  <strong id="harga-total">Rp. 0</strong>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-
-            <script src="script.js"></script>
-</body>
-</html>
+/*=========================*/
+</script><script> DekaTutorial(konten, musik, nomorWhatsapp); </script> </body> </html>
