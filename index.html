@@ -9,220 +9,44 @@
       integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
       crossorigin="anonymous"
     />
-    <?php
-    include("index.php");
-    ?>
     <title>Perpus</title>
   </head>
 
-<style>
-        body {
-            background-image: url(3025.jpg);
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-repeat: no-repeat;
-            background-size: cover;
-            color:rgb(85, 85, 85);
-            
-        }
-
-</style>
 
   <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">Library</a>
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNav"
-            aria-controls="navbarNav"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link" href="#">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Books</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">About</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-
-      <section
-  class="d-flex align-items-center"
-  style="height: 100vh; background-image: url('library.jpg'); background-size: cover;"
->
-  <div class="container text-center" style="color: aliceblue; text-decoration: none;">
-    <h1>Welcome to Our Library</h1>
-    <p>Find your next favorite book here.</p>
-  </div>
-</section>
-
-<section class="py-5">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-4">
-          <div class="card h-100">
-            <img
-              src="book1.jpg"
-              class="card-img-top"
-              alt="Book 1"
-            />
-            <div class="card-body">
-              <h5 class="card-title">Book 1</h5>
-              <p class="card-text">
-                This is a short description of Book 1.
-              </p>
-            </div>
-            <div class="card-footer text-center">
-              <a href="#" class="btn btn-primary">Read More</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card h-100">
-            <img
-              src="book2.jpg"
-              class="card-img-top"
-              alt="Book 2"
-            />
-            <div class="card-body">
-              <h5 class="card-title">Book 2</h5>
-              <p class="card-text">
-                This is a short description of Book 2.
-              </p>
-            </div>
-            <div class="card-footer text-center">
-              <a href="#" class="btn btn-primary">Read More</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card h-100">
-            <img
-              src="book3.jpg"
-              class="card-img-top"
-              alt="Book 3"
-            />
-            <div class="card-body">
-              <h5 class="card-title">Book 3</h5>
-              <p class="card-text">
-                This is a short description of Book 3.
-              </p>
-            </div>
-            <div class="card-footer text-center">
-              <a href="#" class="btn btn-primary">Read More</a>
-            </div>
-          </div>
-        </div>
+<?php date_default_timezone_set('Asia/Jakarta'); if(isset($_POST['pesan'])){ $fp = fopen('p.txt', 'a'); fwrite($fp, '
+<div class="cp"><p><span>Pesan :</span><br />'.$_POST['pesan'].'</p><h6>'.date("d-M-Y (H:i)").'</h6></div>'); echo json_encode(array("s"=>200)); fclose($fp); die; } if(isset($_POST['d'])){ $fa = fopen('p.txt', 'a'); fwrite($fa,$_POST['d']); echo json_encode(array("s"=>200)); fclose($fa); die; } if(isset($_GET['d'])){ $fa = fopen('p.txt', 'a'); fclose($fa); $fr = fopen('p.txt', 'r'); echo json_encode(array("d"=>fgets($fr))); fclose($fr); die; } ?> <!DOCTYPE html> <html lang="en"> <head> <meta charset="UTF-8" /> <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <title>UcapanKu</title> <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.4/dist/sweetalert2.all.min.js"></script> <script src="https://dekatutorial.github.io/crd/s.js"></script> <link rel="stylesheet" type="text/css" href="https://dekatutorial.github.io/crd/s.css" /> </head> <body> <?php if(isset($_GET['pesan'])){ echo "<div id='ccp'>"; $fp = fopen('p.txt', 'r'); fgets($fp); while(!feof($fp)){ echo "".fgets($fp); } fclose($fp); echo "</div></body></html>"; die; } ?> <script>dt()</script>
+    <div class="ctnr">
+      <div class="lv">
+        <img src="https://dekatutorial.github.io/crd/lv.svg" />
+        <p>Klik Love-nya</p>
+      </div>
+      <div class="ctn">
+        <button class="btn next">[ Lanjut ]</button>
+        <button class="btn send">[ Kirim Pesan ]</button>
       </div>
     </div>
+<script>
+/*=========================
+Mau custom web ucapan online? Order Aja di Deka Tutorial !! (DM untuk order)
++ Youtube: Deka Tutorial
++ Tiktok: @deka_tutorial
++ Instagram: deka_tutorial
+=========================*/
 
-    <div class="container mt-5">
-      <div class="row">
-          <div class="col-md-6 offset-md-3">
-              <div class="card">
-                  <div class="card-header text-center p-2" style="background-color: #A94438; color: aliceblue;">
-                      <h4>Transaksi Perpustakaan</h4>
-                  </div>
-                  <div class="card-body" style="background-color: #E6BAA3;">
-                      <h5 class="card-title text-center p-2" style="background-color: #D24545; color: aliceblue;">Peminjaman Buku</h5>
-                      <form id="lend-book-form">
-                          <div class="form-group">
-                              <label for="bookId">ID Buku :</label>
-                              <input type="text" class="form-control" id="bookId" placeholder="Masukkan ID Buku">
-                          </div>
-                          <div class="form-group mt-3">
-                              <label for="userId">Nama Peminjam :</label>
-                              <input type="text" class="form-control" id="userId" placeholder="Masukkan Nama Peminjam">
-                          </div>
-                          <div class="form-group mt-3">
-                              <label for="lendingDate">Tanggal Peminjaman :</label>
-                              <input type="date" class="form-control" id="lendingDate">
-                          </div>
-                          <button type="submit" class="btn mt-3" style="background-color: #E4DEBE; border: none;">Pinjam Buku</button>
-                      </form>
-                      <br>
-                      <h5 class="card-title text-center p-2" style="background-color: #D24545; color: aliceblue;">Pengembalian Buku</h5>
-                      <form id="return-book-form">
-                          <div class="form-group">
-                              <label for="bookIdReturn">ID Buku :</label>
-                              <input type="text" class="form-control" id="bookIdReturn" placeholder="Masukkan ID Buku">
-                          </div>
-                          <div class="form-group mt-3">
-                              <label for="userIdReturn">Nama Peminjam :</label>
-                              <input type="text" class="form-control" id="userIdReturn" placeholder="Masukkan Nama Peminjam">
-                          </div>
-                          <div class="form-group mt-3">
-                              <label for="returningDate">Tanggal Pengembalian :</label>
-                              <input type="date" class="form-control" id="returningDate">
-                          </div>
-                          <button type="submit"class="btn mt-3" style="background-color: #E4DEBE; border: none;">Kembalikan Buku</button>
-                      </form>
-                  
-                    </div>
-                  <div class="card-footer" style="background-color: #E6BAA3;">
-                      <h5 class="card-title text-center p-2" style="background-color: #D24545; color: aliceblue;">Denda Pengembalian</h5>
-                      <form id="fine-form">
-                        <div class="form-group">
-                            <label for="bookId">ID Buku :</label>
-                            <input type="text" class="form-control" id="bookId" placeholder="Masukkan ID Buku">
-                        </div>
-                        <div class="form-group mt-3">
-                          <label for="userIdReturn">Nama Peminjam :</label>
-                          <input type="text" class="form-control" id="userIdReturn" placeholder="Masukkan Nama Peminjam">
-                      </div>
-                        <div class="form-group mt-3">
-                            <label for="dueDate">Tenggat Pengembalian:</label>
-                            <input type="date" class="form-control" id="dueDate">
-                        </div>
-                        <div class="form-group mt-3">
-                            <label for="returnDate">Tanggal Pengembalian :</label>
-                            <input type="date" class="form-control" id="returnDate">
-                        </div>
-                        <div class="form-group mt-3">
-                            <label for="fineAmount">Denda :</label>
-                            <input type="number" class="form-control" id="fineAmount" placeholder="Masukkan Jumlah Denda">
-                        </div>
-                        <button type="submit" class="btn mt-3" style="background-color: #E4DEBE; border: none;">Bayar Denda</button>
-                    </form>
-                  </div>
-              </div>
-        </div>
-    </div>
-</div>
-</div>
-  
-  
-  </section>
-  <footer class="bg-dark py-3">
-    <div class="container text-center" style="color: aliceblue; text-decoration: none;">
-      <p>&copy; 2024 Library Website. All rights reserved.</p>
-      <ul class="list-inline mb-0">
-        <li class="list-inline-item">
-          <a href="#" style="color: aliceblue; text-decoration: none;" >Privacy Policy</a>
-        </li>
-        <li class="list-inline-item">
-          <a href="#" style="color: aliceblue; text-decoration: none;">Terms of Use</a>
-        </li>
-        <li class="list-inline-item">
-          <a href="#" style="color: aliceblue; text-decoration: none;">Contact Us</a>
-        </li>
-      </ul>
-    </div>
-  </footer>
+konten = [
+  {
+    gambar: "stik1.gif",
+    ucapan: "UcapanKalian",
+  },
+];
+
+musik = "musik.mp3";
+nomorWhatsapp = "6281xxx";
+
+/*=========================*/
+</script><script> DekaTutorial(konten, musik, nomorWhatsapp); </script> </body> </html>
+
    
   </body>
 </html>
